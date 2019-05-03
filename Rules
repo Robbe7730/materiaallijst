@@ -2,11 +2,12 @@
 
 require 'nanoc/latexmk'
 
-compile '/materiaal.md' do
+passthrough '/fotos/*'
+
+compile '/materiaal.md', rep: :overzicht do
   layout '/overzicht.tex.erb'
-  write ext: 'tex'
   filter :latexmk, engine: :xelatex
-  write ext: 'pdf'
+  write '/overzicht.pdf'
 end
 
 layout '/**/*.erb', :erb

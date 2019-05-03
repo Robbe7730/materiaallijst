@@ -1,15 +1,25 @@
 \documentclass[a4paper]{article}
 
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage[margin=1in]{geometry}
+
 \begin{document}
 
-\begin{table}[]
-  \begin{tabular}{|l|l|l|l|}
-    \hline
-    Naam & Foto & Aantal & locatie \\ \hline
-    <% item[:materiaal].each do |stock| %>
-      <%= stock[:naam] %> & <%= stock[:foto] %> & <%= stock[:aantal] %> & <%= stock[:locatie] %> \\ \hline
-    <%end%>
-  \end{tabular}
-\end{table}
+\begin{tabularx}{\textwidth}{|l|l|l|X|}
+  \hline
+  Naam & Foto & Aantal & Locatie \\ \hline
+  <% item[:materiaal].each do |stock| %>
+      <%= stock[:naam] %> & 
+      <% if stock[:foto] %>
+        \includegraphics[width=100pt]{content/fotos/<%= stock[:foto] %>} & 
+      <% else %>
+        Geen Foto &
+      <% end %>
+      <%= stock[:aantal] %> & 
+      <%= stock[:locatie] %> 
+      \\ \hline
+  <%end%>
+\end{tabularx}
 
 \end{document}
