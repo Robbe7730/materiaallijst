@@ -1,0 +1,15 @@
+\documentclass[a4paper]{article}
+
+\begin{document}
+
+\begin{table}[]
+  \begin{tabular}{|l|l|l|l|}
+    \hline
+    Naam & Foto & Aantal & locatie \\ \hline
+    <% item[:materiaal].each do |stock| %>
+      <%= stock[:naam] %> & <%= stock[:foto] %> & <%= stock[:aantal] %> & <%= stock[:locatie] %> \\ \hline
+    <%end%>
+  \end{tabular}
+\end{table}
+
+\end{document}

@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+require 'nanoc/latexmk'
+
+compile '/materiaal.md' do
+  layout '/overzicht.tex.erb'
+  write ext: 'tex'
+  filter :latexmk, engine: :xelatex
+  write ext: 'pdf'
+end
+
+layout '/**/*.erb', :erb
