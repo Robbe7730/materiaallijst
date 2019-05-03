@@ -12,7 +12,7 @@
   <% item[:materiaal].each do |stock| %>
       <%= stock[:naam] %> & 
       <% if stock[:foto] %>
-        \includegraphics[width=100pt]{content/fotos/<%= stock[:foto] %>} & 
+        \includegraphics[width=2cm, height=2cm, keepaspectratio]{content/fotos/<%= stock[:foto] %>} & 
       <% else %>
         Geen Foto &
       <% end %>
