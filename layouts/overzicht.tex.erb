@@ -11,7 +11,7 @@
   Naam & Foto & Aantal & Locatie \\ \hline
   <% item[:materiaal].each do |stock| %>
       <%= stock[:naam] %> & 
-      <% if stock[:foto] %>
+      <% if stock[:foto] and File.file?("content/fotos/"+stock[:foto])%>
         \includegraphics[width=2cm, height=2cm, keepaspectratio]{content/fotos/<%= stock[:foto] %>} & 
       <% else %>
         Geen Foto &
